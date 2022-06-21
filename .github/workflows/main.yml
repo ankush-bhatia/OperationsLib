@@ -9,14 +9,11 @@ jobs:
     strategy:
       matrix:
         destination: [
-          'macOS', 
-          'iOS Simulator,name=iPhone 8', 
-          'tvOS Simulator,name=Apple TV', 
-          'watchOS Simulator,name=Apple Watch Series 5 - 40mm'
+          'iOS Simulator,name=iPhone 11'
         ]
         swift-version: [5.0]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.4
