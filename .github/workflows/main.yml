@@ -10,6 +10,7 @@ jobs:
     steps:
       # Update the swift version to the latest one
       - uses: swift-actions/setup-swift@v1
+      - name: Gets swift version
         run: swift --version
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
