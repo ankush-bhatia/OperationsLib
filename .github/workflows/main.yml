@@ -1,25 +1,22 @@
-name: build
-
+name: CI
 on: [push, pull_request]
-
 jobs:
-  run-test:
-    name: Runs the tests
-    runs-on: macos-11
-    strategy:
-      matrix:
-        destination: [
-          'iOS Simulator,name=iPhone 11'
-        ]
-        swift-version: [5.0]
+  # This workflow contains a single job called "tests"
+  tests:
+    # The type of runner that the job will run on
+    runs-on: macOS-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v1
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7.4
-          bundler-cache: true
-      - name: Run tests
-        env:
-          DESTINATION: platform=${{ matrix.destination }}
-          SWIFT_VERSION: ${{ matrix.swift-version }}
-        run: bundle exec fastlane test_ci
+      # Update the swift version to the latest one
+      - uses: swift-actions/setup-swift@v1
+      - name: Gets swift version
+        run: swift --version
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run Unit Tests
+        run: |
+          swift test --enable-code-coverage
