@@ -2,11 +2,13 @@ name: tests
 
 on: [push, pull_request]
 
-jobs: tests:
-  name: Unit-Tests
-  runs-on: macOS-latest
-  steps:      - name: Checkout repository
-  uses: actions/checkout@v1
-  - name: Run Unit Tests
-  run: |
-    swift test --enable-code-coverage
+jobs: 
+  tests:
+    name: Unit-Tests
+    runs-on: macOS-latest
+      steps:
+        - name: Checkout repository
+        - uses: actions/checkout@v1
+        - name: Run Unit Tests
+          run: |
+            swift test --enable-code-coverage
