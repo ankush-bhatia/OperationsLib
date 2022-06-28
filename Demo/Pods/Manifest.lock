@@ -1,0 +1,16 @@
+PODS:
+  - OperationsLib (0.0.1-beta.1)
+
+DEPENDENCIES:
+  - OperationsLib (from `../`)
+
+EXTERNAL SOURCES:
+  OperationsLib:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  OperationsLib: b2997f66d1a68cfc858e8dd0b497a4750d2929fc
+
+PODFILE CHECKSUM: c7aa289e670e8f45976e3901f44483c08940549d
+
+COCOAPODS: 1.11.3
